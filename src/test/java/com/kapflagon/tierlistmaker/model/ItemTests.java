@@ -1,8 +1,11 @@
 package com.kapflagon.tierlistmaker.model;
 
-import com.kapflagon.tierlistmaker.model.Item;
-import org.junit.jupiter.api.Assertions;
+import javafx.scene.image.Image;
 import org.junit.jupiter.api.Test;
+
+import java.io.InputStream;
+
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ItemTests {
@@ -22,7 +25,7 @@ public class ItemTests {
 
     // Other methods
     @Test
-    void testCreateItemWithName() {
+    void createItemWithNameAlone() {
         String name = "My item";
         Item item = new Item(name);
         assertEquals(name, item.getItemName());
@@ -41,15 +44,29 @@ public class ItemTests {
     }
 
     @Test
-    void addItemImage() {
-        Item item = new Item("Test item");
-        //item.setItemImage();
-
+    void createItemWithImage() {
+        String itemName = "Test item";
+        ClassLoader classLoader = this.getClass().getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream("com/kapflagon/tierlistmaker/files/images/TestImage_1.png");
+        Image image = new Image(inputStream);
+        Item item = new Item(itemName, image);
+        assertEquals(image, item.getItemImage());
     }
 
     @Test
     void changeItemImage() {
-
+        String itemName = "Test item";
+        ClassLoader classLoader = this.getClass().getClassLoader();
+        InputStream inputStream_1 = classLoader.getResourceAsStream("com/kapflagon/tierlistmaker/files/images/TestImage_1.png");
+        Image image_1 = new Image(inputStream_1);
+        Item item = new Item(itemName, image_1);
+        InputStream inputStream_2 = classLoader.getResourceAsStream("com/kapflagon/tierlistmaker/files/images/TestImage_2.png");
+        Image image_2 = new Image(inputStream_2);
+        item.setItemImage(image_2);
+        assertAll(
+                () -> assertNotEquals(image_1, item.getItemImage()),
+                () -> assertEquals(image_2, item.getItemImage())
+        );
     }
 
 
