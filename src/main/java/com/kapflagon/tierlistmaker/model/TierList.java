@@ -1,23 +1,21 @@
 package com.kapflagon.tierlistmaker.model;
 
-import javafx.scene.image.Image;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Item {
+public class TierList {
 
 
     // Variables
     private String name;
-    private Image image;
+    private List<Tier> tiers;
 
 
     // Constructors
-    public Item(String name) {
-        this.name = name;
-    }
 
-    public Item(String name, Image image) {
+    public TierList(String name) {
         this.name = name;
-        this.image = image;
+        tiers = new ArrayList<>();
     }
 
 
@@ -28,14 +26,6 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Image getImage() {
-        return image;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
     }
 
 

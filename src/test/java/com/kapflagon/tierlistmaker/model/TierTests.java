@@ -23,7 +23,7 @@ public class TierTests {
     void testNewTierCreation() {
         String tierName = "My Tier";
         Tier tier = new Tier(tierName);
-        assertEquals(tierName, tier.getTierName());
+        assertEquals(tierName, tier.getName());
     }
 
     @Test
@@ -31,10 +31,10 @@ public class TierTests {
         String oldTierName = "My old name";
         String newTierName = "My new name";
         Tier tier = new Tier(oldTierName);
-        tier.setTierName(newTierName);
+        tier.setName(newTierName);
         assertAll(
-                () -> assertNotEquals(oldTierName, tier.getTierName()),
-                () -> assertEquals(newTierName, tier.getTierName())
+                () -> assertNotEquals(oldTierName, tier.getName()),
+                () -> assertEquals(newTierName, tier.getName())
         );
     }
 
@@ -43,10 +43,10 @@ public class TierTests {
         String tierName = "My Tier";
         Tier tier = new Tier(tierName);
         Item item = new Item("My item");
-        tier.getTierItems().add(item);
+        tier.getItems().add(item);
         assertAll(
-                () -> assertEquals(1, tier.getTierItems().size()),
-                () -> assertEquals(item, tier.getTierItems().get(0))
+                () -> assertEquals(1, tier.getItems().size()),
+                () -> assertEquals(item, tier.getItems().get(0))
         );
     }
 
@@ -55,10 +55,10 @@ public class TierTests {
         String tierName = "My Tier";
         Tier tier = new Tier(tierName);
         Item item = new Item("My item");
-        tier.getTierItems().add(item);
-        assertEquals(1, tier.getTierItems().size());
-        tier.getTierItems().remove(0);
-        assertEquals(0, tier.getTierItems().size());
+        tier.getItems().add(item);
+        assertEquals(1, tier.getItems().size());
+        tier.getItems().remove(0);
+        assertEquals(0, tier.getItems().size());
     }
 
 }

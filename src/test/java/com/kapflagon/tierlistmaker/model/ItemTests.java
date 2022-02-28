@@ -28,7 +28,7 @@ public class ItemTests {
     void createItemWithNameAlone() {
         String name = "My item";
         Item item = new Item(name);
-        assertEquals(name, item.getItemName());
+        assertEquals(name, item.getName());
     }
 
     @Test
@@ -36,10 +36,10 @@ public class ItemTests {
         String oldName = "My old item name";
         String newName = "My new item name";
         Item item = new Item(oldName);
-        item.setItemName(newName);
+        item.setName(newName);
         assertAll(
-                () -> assertNotEquals(oldName, item.getItemName()),
-                () -> assertEquals(newName, item.getItemName())
+                () -> assertNotEquals(oldName, item.getName()),
+                () -> assertEquals(newName, item.getName())
         );
     }
 
@@ -50,7 +50,7 @@ public class ItemTests {
         InputStream inputStream = classLoader.getResourceAsStream("com/kapflagon/tierlistmaker/files/images/TestImage_1.png");
         Image image = new Image(inputStream);
         Item item = new Item(itemName, image);
-        assertEquals(image, item.getItemImage());
+        assertEquals(image, item.getImage());
     }
 
     @Test
@@ -62,10 +62,10 @@ public class ItemTests {
         Item item = new Item(itemName, image_1);
         InputStream inputStream_2 = classLoader.getResourceAsStream("com/kapflagon/tierlistmaker/files/images/TestImage_2.png");
         Image image_2 = new Image(inputStream_2);
-        item.setItemImage(image_2);
+        item.setImage(image_2);
         assertAll(
-                () -> assertNotEquals(image_1, item.getItemImage()),
-                () -> assertEquals(image_2, item.getItemImage())
+                () -> assertNotEquals(image_1, item.getImage()),
+                () -> assertEquals(image_2, item.getImage())
         );
     }
 

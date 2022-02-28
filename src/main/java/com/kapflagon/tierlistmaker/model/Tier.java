@@ -7,32 +7,32 @@ public class Tier {
 
 
     // Variables
-    private String tierName;
-    private List<Item> tierItems;
+    private String name;
+    private List<Item> items;
 
 
     // Constructors
-    public Tier(String tierName) {
-        this.tierName = tierName;
-        this.tierItems = new ArrayList<>();
+    public Tier(String name) {
+        this.name = name;
+        this.items = new ArrayList<>();
     }
 
 
     // Getters and Setters
-    public String getTierName() {
-        return tierName;
+    public String getName() {
+        return name;
     }
 
-    public void setTierName(String tierName) {
-        this.tierName = tierName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public List<Item> getTierItems() {
-        return tierItems;
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setTierItems(List<Item> tierItems) {
-        this.tierItems = tierItems;
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 
 
