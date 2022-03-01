@@ -8,12 +8,14 @@ public class Tier {
 
     // Variables
     private String name;
+    private int position;
     private List<Item> items;
 
 
     // Constructors
     public Tier(String name) {
         this.name = name;
+        this.position = 0;
         this.items = new ArrayList<>();
     }
 
@@ -25,6 +27,14 @@ public class Tier {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public List<Item> getItems() {
@@ -40,6 +50,13 @@ public class Tier {
 
 
     // Other methods
+    public void addItem(Item newItem) {
+        items.add(newItem);
+    }
+
+    public void removeItem(Item item) {
+        items.remove(item);
+    }
 
 
 }

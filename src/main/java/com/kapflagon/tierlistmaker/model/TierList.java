@@ -1,6 +1,7 @@
 package com.kapflagon.tierlistmaker.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class TierList {
@@ -28,11 +29,33 @@ public class TierList {
         this.name = name;
     }
 
+    public List<Tier> getTiers() {
+        return tiers;
+    }
+
+    public void setTiers(List<Tier> tiers) {
+        this.tiers = tiers;
+    }
+
+
 
     // Initialisation methods
 
-
     // Other methods
 
+    public void addTier(Tier tier) {
+        tiers.add(tier);
+    }
 
+
+    public void insertTierAtPosition(int insertionPosition, Tier tierForInsertion) {
+        tiers.add(insertionPosition, tierForInsertion);
+        updateTierPositions();
+    }
+
+    private void updateTierPositions() {
+        for (int iterator = 0; iterator < tiers.size(); iterator++) {
+            tiers.get(iterator).setPosition(iterator);
+        }
+    }
 }
